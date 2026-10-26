@@ -1,0 +1,83 @@
+Part 1 — Foundations
+
+
+1.What is backend development?
+
+2.Frontend vs backend development
+
+3.Client, server and database
+
+4.How the internet works
+
+5.What is an IP address, domain and port?
+
+6.What is HTTP and HTTPS?
+
+7.What is a request and response?
+
+8.HTTP methods: GET, POST, PUT, PATCH and DELETE
+
+9.HTTP status codes
+
+10.What are headers, body and query parameters?
+
+11.What is JSON?
+
+12.What is an API?
+
+13.What is REST API?
+
+14.What happens when you enter a URL in a browser?
+
+15.What is synchronous vs asynchronous programming?
+
+16.What is blocking vs non-blocking code?
+
+    Part 2 — Node.js Fundamentals
+
+
+17. What is Node.js? 
+18. Why was Node.js created? 
+19. JavaScript in the browser vs JavaScript in Node.js 
+20. Is Node.js a programming language, framework or runtime? 
+21. Node.js architecture 
+22. V8 JavaScript engine 
+23. libuv and its role 
+24. Event-driven architecture 
+25. Single-threaded nature of Node.js 
+26. Call stack, callback queue and event loop 
+27. How the event loop works 
+28. Microtasks and macrotasks 
+29. process.nextTick(), Promises and setImmediate() 
+30. Timers in Node.js 
+31. Blocking the event loop 
+32. When Node.js is a good or poor choice 
+33. Node.js installation and version management 
+34. Running JavaScript with Node.js 
+35. Node.js REPL 
+36. The process object 
+37. Environment variables 
+38. process.argv and command-line arguments
+
+    Part 3 — Node.js Modules and Core Concepts
+
+Understand how backend code is organized.
+
+39. What is a module? 
+40. Built-in, local and third-party modules 
+41. CommonJS modules 
+42. require() and module.exports 
+43. ES modules 
+44. import and export 
+45. CommonJS vs ES modules 
+46. package.json 
+47. package-lock.json 
+48. npm and npx 
+49. Dependencies vs devDependencies 
+50. Installing, updating and removing packages 
+51. Semantic versioning 
+52. The node_modules folder 
+53. npm scripts 
+54. The __dirname and __filename concepts 
+55. Module caching 
+56. Creating your own reusable modules   

@@ -1,0 +1,59 @@
+What exactly is backend development?
+    Backend development is the process of building and maintaining the server-side part of an application. 
+    It handles incoming requests, executes application logic, works with databases and other services, 
+    and sends appropriate responses to clients.
+
+Frontend vs backend development
+    Frontend development focuses on the user-facing part of an application, including the interface, 
+    layout and user interactions. Backend development focuses on server-side processing, business logic, 
+    APIs, database communication and security. In the MERN stack, React is used for the frontend, Node.js 
+    and Express.js are used for the backend, and MongoDB is used as the database. They communicate through 
+    APIs, commonly using HTTP requests and responses.
+
+What is a client?
+    A client is a device or application that requests a service or information from another system.
+
+    Examples of clients:
+    - A web browser such as Chrome.
+    - A React application running in your browser.
+    - A mobile banking application.
+    - A desktop application that communicates with a server.
+    Imagine you open an online shopping website in Chrome. Chrome displays the website and sends requests when 
+    you search for products or log in.
+
+    In this situation, the browser is the client.
+What is a server?
+    A server is a system or program that receives requests, processes them and provides responses or services.
+
+    For example, when you click the Login button, the server-side application can:
+    1. Receive your login request.
+    2. Validate the submitted information.
+    3. Check the user record in the database.
+    4. Verify the password.
+    5. Return a success or failure response.
+
+How does the internet work?
+    The internet is a global network of interconnected devices that communicate using protocols. 
+    When a browser accesses a website, it resolves the domain name when necessary, establishes the 
+    appropriate network connection, sends an HTTP request and receives a response from the server.
+
+What is an IP address?
+    An IP address (Internet Protocol address) is a network address assigned to an interface so that devices 
+    can identify network endpoints and route data.
+
+What is a domain name?
+    A domain name is a human-readable name used to identify an internet service or resource.
+
+    For example:
+    - google.com
+    - amazon.com
+    - github.com
+    It is easier to remember a name than an IP address.
+
+    DNS (Domain Name System) helps resolve domain names into records, often including IP addresses, so the client 
+    can locate the appropriate server.
+
+What is a port number?
+    A port number identifies a communication endpoint for an application or service on a device.
+
+    Think of an IP address as the building address and a port as the particular entrance or service you want to reach.
