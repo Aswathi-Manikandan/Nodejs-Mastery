@@ -1,0 +1,271 @@
+What is HTTP? :
+    HTTP stands for Hypertext Transfer Protocol.
+
+    It is a set of rules that allows a client and a server to communicate with each other.
+
+    Think about a shopping website. You click the Login button, and your React application sends your 
+    login details to the backend. The communication between them typically happens using HTTP.
+
+What is HTTPS? :
+    HTTPS stands for Hypertext Transfer Protocol Secure.
+
+    HTTPS is HTTP communication protected by encryption using TLS (Transport Layer Security).
+
+    Suppose you are logging in to a website.
+    - With HTTP, the communication is not encrypted by HTTP itself, so someone able to intercept the traffic 
+    may be able to read its contents.
+    - With HTTPS, the communication is encrypted in transit, helping prevent others from reading or secretly 
+    modifying the data.
+
+    HTTP — Not encrypted by HTTP
+
+    Information is transmitted without HTTP-level encryption. It is unsuitable for protectin
+    g passwords and sensitive information over an untrusted network.
+
+    HTTPS — Encrypted in transit
+
+    TLS helps protect information while it travels between the client and server and helps verify 
+    the server's identity.
+
+    Important: HTTPS protects data in transit. It does not automatically make a website safe, 
+    prevent every attack, or encrypt data stored inside the database.
+
+What is the HTTP module in Node.js?
+    The http module is a built-in Node.js module that allows us to create an HTTP server and handle 
+    HTTP requests and responses.
+
+    It allows Node.js to:
+    - Create a web server.
+    - Receive requests from browsers or frontend applications.
+    - Send responses back to clients.
+    - Read request URLs, methods, headers, and bodies.
+    - Build simple APIs without Express.js.
+
+
+7.	HTTP Methods
+    a.	GET Method
+        The get method is a kind of HTTP request that a client makes to request some data from the server.
+        The get method comes with two parameters: the first is the URL, which means the URL for which the method 
+        is listening, and the second is the callback function, where that particular callback function takes two 
+        default arguments: one is a request made by the client, and the other is a response that will be sent to the client.
+        Syntax:
+        app.get("URL",(req,res)=>{})
+    b.	POST Method
+        The post method is used to send data from the client side to the server side that will be further stored 
+        in the database. Similarly, the post method contains two parameters:the first is the URL, which means the
+        URL for which the method is listening, and the second is the callback function, where that particular 
+        callback function takes two default arguments: one is a request made by the client, and the other is a 
+        response that will be sent to the client.
+        The post-request body contains the data sent by the client, and this data can only be accessed after parsing 
+        it into JSON.
+        Syntax:
+        app.post("URL",(req,res)=>{})
+    c.	DELETE Method
+        Delete is one of the most commonly used HTTP methods; it is used to delete particular data from a database. 
+        Similarly, the delete method contains two parameters:the first is the URL, which means the URL for which 
+        the method is listening, and the second is the callback function, where that particular callback function 
+        takes two default arguments: one is a request made by the client, and the other is a response that will be 
+        sent to the client.
+        Again the ID will be comes under body section of request.
+        Syntax:
+        app.delete("URL",(req,res)=>{})
+
+    d.PUT Method
+        The put method is used to update the data that is already present in the database. Similarly, the put 
+        method contains two parameters:the first is the URL, which means the URL for which the method is listening, 
+        and the second is the callback function, where that particular callback function takes two default arguments: 
+        one is a request made by the client, and the other is a response that will be sent to the client.
+        Again the data wants to client update will comes under body section of request.
+        Syntax:
+        app.put("URL",(req,res)=>{})
+
+    d.	PATCH Method
+        A PATCH request is used to partially update a resource. This means you only need to send the data that you 
+        want to change, without affecting the rest of the resource.
+
+            const express = require('express');
+            const app = express();
+            const PORT = 3000;
+            app.use(express.json());
+
+            app.get("/", (req, res) => {
+                console.log("GET Request Successfull!");
+                res.send("Get Req Successfully initiated");
+            })
+
+            app.put("/put", (req, res) => {
+                console.log("PUT REQUEST SUCCESSFUL");
+                console.log(req.body);
+                res.send(`Data Update Request Recieved`);
+            })
+
+            app.post("/post", (req, res) => {
+                console.log("POST REQUEST SUCCESSFUL");
+                console.log(req.body);
+                res.send(`Data POSt Request Recieved`);
+            })
+
+            app.delete("/delete", (req, res) => {
+                console.log("DELETE REQUEST SUCCESSFUL");
+                console.log(req.body);
+                res.send(`Data DELETE Request Recieved`);
+            })
+
+            app.listen(PORT, () => {
+                console.log(`Server established at ${PORT}`);
+            })
+
+HTTP status codes  :
+    An HTTP status code is a three-digit number sent by the server to indicate the result of a client's request.
+    200
+    OK
+
+    The request succeeded.
+
+    Example: A user requests a list of products, and the server returns them.
+
+
+
+    201
+    Created
+
+    A new resource was successfully created.
+
+    Example: A new user account was created.
+
+
+
+    202
+    Accepted
+
+    The request was accepted for processing, but processing might not be complete.
+
+    Example: A report-generation job was queued.
+
+
+
+    204
+    No Content
+
+    The request succeeded, but there is no response body.
+
+    Example: A product was successfully deleted, and no content needs to be returned.
+
+    301
+    Moved Permanently
+
+    The resource has a permanent new URL.
+
+
+
+    302
+    Found
+
+    The resource is temporarily available at another URL.
+
+
+
+    304
+    Not Modified
+
+    The client can reuse a cached response because the resource has not changed according to the relevant 
+    cache validators.
+    400
+    Bad Request
+
+    The request is invalid or malformed.
+
+    Example: The client sends invalid JSON or required input is missing, according to the API's validation rules.
+
+
+
+    401
+    Unauthorized
+
+    Valid authentication credentials are missing or are not accepted.
+
+    Example: A user attempts to access a protected route without a valid login token.
+
+
+
+    403
+    Forbidden
+
+    The server understands the request but refuses to authorize it.
+
+    Example: A logged-in normal user attempts to access an administrator-only route.
+
+
+
+    404
+    Not Found
+
+    The requested resource or route cannot be found.
+
+    Example: The client requests /products/999, but no such product exists.
+
+
+
+    405
+    Method Not Allowed
+
+    The HTTP method is not supported for that resource.
+
+    Example: A route allows GET, but the client tries to use DELETE.
+
+
+
+    409
+    Conflict
+
+    The request conflicts with the current resource state.
+
+    Example: Registering a username that must be unique when it already exists.
+
+
+
+    422
+    Unprocessable Content
+
+    The request format is understood, but its content cannot be processed.
+
+    Example: A registration request contains a syntactically valid email field with a value that fails the application's 
+    validation rules.
+
+
+
+    429
+    Too Many Requests
+
+    The client has sent too many requests within a given period.
+
+    Example: A login API limits repeated attempts.
+    500
+    Internal Server Error
+
+    An unexpected server-side failure occurred.
+
+    Example: An unhandled exception occurs in the backend.
+
+
+
+    502
+    Bad Gateway
+
+    A server acting as a gateway or proxy receives an invalid response from an upstream server.
+
+
+
+    503
+    Service Unavailable
+
+    The server is temporarily unable to handle the request.
+
+    Example: A service is overloaded or undergoing maintenance.
+
+
+
+    504
+    Gateway Timeout
+
+    A gateway or proxy did not receive a timely response from an upstream server.

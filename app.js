@@ -1,8 +1,10 @@
-const http = require('http')
-const server = http.createServer((req, res) => {
-    res.end("hello from http server")
+const express = require('express')
+const app = express()
+app.get('/product', (req, res) => {
+    const category = req.query.category
+    res.send(`CATEGORY : ${category}`)
 })
-server.listen(3000, () => {
-    console.log('server is running on port 3000');
+app.listen(3000, () => {
+    console.log("working");
 
 })
