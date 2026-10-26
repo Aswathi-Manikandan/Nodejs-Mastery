@@ -1,0 +1,126 @@
+What is REST API? :
+    REST API is a way for applications to communicate with each other using HTTP methods and a set 
+    of design principles.
+
+    REST stands for Representational State Transfer.
+    In simple words, a REST API allows a frontend application, like React, to communicate with a 
+    backend application, like Node.js and Express.js, to create, read, update, or delete data.
+
+REST API uses HTTP methods
+=====>Consider a product resource with the URL /products.
+
+            HTTP method	            Endpoint	            Purpose
+            GET	                    /products	        Get all products
+            GET	                    /products/101	    Get product with ID 101
+            POST	                /products	        Create a new product
+            PUT	                    /products/101	    Replace product 101
+            PATCH	                /products/101	    Update part of product 101
+            DELETE	                /products/101	    Delete product 101
+
+synchronous programming?
+    Synchronous programming means tasks execute one after another, in order. A task must finish before 
+    the next task can proceed. 
+
+What is asynchronous programming?
+    Asynchronous programming allows JavaScript to start an operation that takes time and continue with other 
+    work while waiting for that operation to finish.
+
+4 ways to handle asynchronous programming :
+1. Callbacks
+    A callback is a function passed to another function to be executed later, often when an operation completes.
+
+    function getData(callback) {
+    setTimeout(() => {
+        callback("Data received");
+    }, 2000);
+    }
+
+    getData((result) => {
+        console.log(result);
+    });
+
+    How it works:
+    1. getData() receives a function as an argument.
+    2. setTimeout() waits approximately 2 seconds.
+    3. The callback executes and prints "Data received".
+
+2. Promises :
+    A Promise represents the eventual success or failure of an asynchronous operation.
+    const promise = new Promise((resolve, reject) => {
+    resolve("Data received");
+    });
+
+    promise
+    .then((result) => console.log(result))
+    .catch((error) => console.log(error));
+
+3. Async/Await :
+    async/await lets you write Promise-based asynchronous code in a style that looks more like synchronous
+    function getData() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Data received");
+        }, 2000);
+    });
+    }
+
+    async function displayData() {
+    const result = await getData();
+    console.log(result);
+    }
+
+    displayData();
+
+    - async declares an asynchronous function.
+    - await waits for the Promise to settle inside that function without blocking the entire JavaScript thread.
+
+4. Event-based programming :
+    In event-based programming, a function runs when a particular event occurs. Node.js uses events extensively.
+    
+    const EventEmitter = require("events");
+    const emitter = new EventEmitter();
+
+    emitter.on("message", () => {
+        console.log("Message event received");
+    });
+
+    emitter.emit("message");
+
+What is blocking vs non-blocking code? :
+    What is blocking code?
+        Blocking code stops further execution on the current JavaScript thread until the operation finishes.
+        const fs = require("fs");
+
+        console.log("Task 1");
+
+        const data = fs.readFileSync("sample.txt", "utf8");
+
+        console.log(data);
+        console.log("Task 2");
+
+        Output:
+        Task 1
+        Hello World
+        Task 2
+    What is non-blocking code?
+        Non-blocking code allows the current JavaScript thread to continue doing other work 
+        while waiting for an operation to finish.
+        const fs = require("fs");
+
+    console.log("Task 1");
+
+    fs.readFile("sample.txt", "utf8", (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        console.log(data);
+    });
+
+    console.log("Task 2");
+
+    Output:
+    Task 1
+    Task 2
+    Hello World

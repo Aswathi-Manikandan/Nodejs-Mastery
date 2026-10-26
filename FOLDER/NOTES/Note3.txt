@@ -1,0 +1,61 @@
+What are headers, body and query parameters :
+    1. Headers
+        Headers provide additional information about a request or response.
+    2. Body
+        The body contains the data you want to send to the server.
+    3. Query parameters
+        Query parameters pass additional values through the URL, commonly for searching, filtering, sorting, 
+        or pagination.
+            http://localhost:3000/products?category=mobile&price=20000
+            Here:
+            - category=mobile is one query parameter.
+            - price=20000 is another query parameter.
+            - ? starts the query string.
+            - & separates multiple parameters.
+            In Express, access them using req.query:
+        
+Path Parameters :
+    Path parameters are values passed directly inside the URL path to identify a specific resource.
+
+
+What is JSON? :
+    JSON stands for JavaScript Object Notation.
+    {
+  "name": "Laptop",
+  "price": 50000,
+  "category": "Electronics",
+  "inStock": true
+    }
+        =>JSON.stringify() — Object to JSON string
+        =>JSON.parse() — JSON string to JavaScript value
+
+What is an API? :
+    API stands for Application Programming Interface.
+
+    An API allows two software applications to communicate with each other through a defined set of rules.
+    For example, in a MERN stack application, React needs product data from your Node.js backend. The API 
+    provides a way for React to request that data.
+
+    How does an API work in MERN stack?
+    Suppose you are building an e-commerce application.
+    React frontend
+
+    Requests product details
+
+    API: GET /products
+
+    Node.js + Express backend
+
+    Processes the request
+
+    MongoDB
+
+    Stores product data
+
+
+    The process is:
+    1. React sends a request to GET /products.
+    2. Express receives the request through an API route.
+    3. The backend retrieves products from MongoDB.
+    4. The backend sends the product data back, often as JSON.
+    5. React displays the products.
