@@ -1,0 +1,69 @@
+What is Node.js?  :
+    Node.js is an open-source, cross-platform JavaScript runtime environment that uses the 
+    V8 JavaScript engine to execute JavaScript outside the browser. It is commonly used for 
+    backend development, REST APIs, and real-time applications. Its event-driven architecture 
+    and non-blocking I/O make it suitable for applications that handle many concurrent I/O operations.
+
+Why was Node.js created? :
+    Node.js was created to make it possible to run JavaScript outside the browser and to build servers 
+    that can handle many requests efficiently, especially when those requests involve waiting for network 
+    or file operations.
+
+1. Run JavaScript outside the browser
+
+    Developers could use JavaScript to build server-side applications, not just interactive web pages.
+
+2. Handle many connections efficiently
+
+    Node.js uses an event-driven architecture and non-blocking I/O, allowing the server to continue 
+    doing other work while waiting for operations such as network responses.
+
+3. Use JavaScript across the application
+    Developers could use JavaScript for both frontend and backend development, reducing the need to switch 
+    between languages.
+
+What is the difference between JavaScript in the browser and JavaScript in Node.js?
+    JavaScript is the same language in both environments, but the available APIs and execution environments differ. 
+    Browser JavaScript is commonly used for frontend interactions and provides APIs such as document and window. 
+    Node.js runs JavaScript outside the browser and provides server-side APIs for file handling, networking, 
+    and process management. In a MERN application, browser JavaScript powers the React frontend, while Node.js 
+    runs the backend.
+
+ Is Node.js a programming language, framework or runtime?  :
+    Node.js is a runtime environment, not a programming language or a framework.
+
+Node.js architecture  :
+    Node.js architecture explains how Node.js receives requests, executes JavaScript, handles asynchronous operations, 
+    and sends responses back to clients.
+
+Main components of Node.js architecture :
+    1. V8 JavaScript engine
+        V8 is the JavaScript engine used by Node.js.
+        Its job is to execute your JavaScript code.
+    2. Node.js APIs :
+        Node.js provides built-in modules that allow your JavaScript program to interact with the system.
+
+        Examples:
+        - fs — file operations.
+        - http — HTTP servers and requests.
+        - path — file paths.
+        - crypto — cryptographic operations.
+
+    3. Event loop
+        The event loop coordinates when asynchronous callbacks are executed.
+
+        Suppose your application starts a file-reading operation. Instead of waiting synchronously 
+        for the file to be read, Node.js can continue executing other JavaScript code. When the operation 
+        completes, its callback can be scheduled for execution.
+        The event loop helps Node.js manage this process.
+    
+    4. libuv
+        libuv is a library used by Node.js to support its event loop, asynchronous I/O, and worker pool.
+        It helps Node.js work with operating-system facilities across different platforms.
+    
+    5. Thread pool
+        The worker pool allows certain operations to run away from the main JavaScript thread.
+
+        For example, some file-system and cryptographic operations can use this pool.
+        This means the main JavaScript thread can continue handling other work while those 
+        operations are in progress.

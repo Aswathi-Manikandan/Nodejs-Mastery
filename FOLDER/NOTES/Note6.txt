@@ -1,0 +1,50 @@
+libuv and its role :
+    ibuv is a cross-platform C library that provides Node.js with an event loop, asynchronous I/O support, 
+    and a worker pool.
+
+    To understand why libuv is important, remember that Node.js normally executes JavaScript on a single 
+    main thread. When an operation takes time, Node.js needs a way to handle that operation without 
+    unnecessarily blocking JavaScript execution.
+
+Why does Node.js need libuv?
+    Imagine your Express server receives two requests:
+    - Request A needs to read a large file.
+    - Request B needs to return a simple message.
+    If the file is read using a blocking operation, Request B may have to wait while the main JavaScript 
+    thread is blocked.
+
+    With asynchronous file reading, Node.js can arrange for the file operation to proceed without blocking 
+    the main JavaScript thread. Meanwhile, the server can continue processing other work.
+
+    libuv provides important runtime mechanisms that make this possible.
+
+What does libuv do?
+    1. Event loop
+        Coordinates asynchronous callbacks and checks for completed operations that need JavaScript execution.
+    2. Asynchronous I/O
+        Helps Node.js use operating-system facilities to handle operations such as network communication 
+        without blocking the main JavaScript thread while waiting.
+    3. Worker pool
+        Provides background threads for certain operations, including many file-system operations and 
+        some cryptographic tasks.
+    
+    libuv is a cross-platform C library used by Node.js to provide the event loop, asynchronous 
+    I/O support, and a worker pool. It enables Node.js to handle I/O operations efficiently without 
+    unnecessarily blocking the main JavaScript thread. Network operations commonly use operating-system 
+    facilities, while operations such as many file-system tasks can use the worker pool.
+
+Event-driven architecture :
+    vent-driven architecture is a programming approach where the flow of a program depends on events and the 
+    handlers that respond to those events.
+     example:
+    - A user clicks a button.
+    - A file finishes reading.
+    - A request arrives at a server.
+    - A database query completes.
+    
+How event-driven architecture works:
+    1. Event : Something happens, such as a message arriving.
+
+    2. Event listener : A function is registered to listen for a particular event.
+
+    3. Event handler : The function runs when the event is triggered.
